@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
@@ -13,7 +13,7 @@ const todos = [
 
 function App() {
   return (
-    <>
+    <div className="App">
       <TodoCounter />
       <TodoSearch />
       <TodoList>
@@ -23,7 +23,7 @@ function App() {
       </TodoList>
       <CreateTodoButton />
       <button>+</button>
-    </>
+    </div>
   );
 }
 

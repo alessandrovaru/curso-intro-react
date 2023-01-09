@@ -1,10 +1,11 @@
+import './TodoCounter.css';
 
 const TodoCounter = () => {
   return (
-    <>
-      <h1>TodoCounter</h1>
-      <h2>Has completado 2 de 3 Todo's</h2>
-    </>
+    <div className='todoCounterContainer'>
+      <h1 className='todoTitle'>Haz tus tareas, por favor</h1>
+      <h2 className='todoCounter'>Has completado 2 de 3 Todo's</h2>
+    </div>
   )
 }
 
