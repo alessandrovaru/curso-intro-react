@@ -1,8 +1,6 @@
 .todoDoListTitle{
   font-size: 14px;
 }
-ul {
-  padding: 0;
-  list-style-type: none;
+.TodoList {
   width: 100%;
 }

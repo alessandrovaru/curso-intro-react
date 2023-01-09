@@ -4,9 +4,9 @@ const TodoList = (props) => {
   return (
     <>
       <h3>Lista</h3>
-      <ul>
+      <div className='TodoList'>
         {props.children}
-      </ul>
+      </div>
     </>
   )
 }

@@ -22,7 +22,7 @@ function App() {
         ))}
       </TodoList>
       <CreateTodoButton />
-      <button>+</button>
+      
     </div>
   );
 }

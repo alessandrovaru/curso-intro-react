@@ -3,7 +3,7 @@ import './TodoItem.css';
 const TodoItem = (props) => {
   return (
     <>
-      <li>{props.text}</li> 
+      <div className="TodoItem">{props.text}</div> 
     </>
   )
 }
