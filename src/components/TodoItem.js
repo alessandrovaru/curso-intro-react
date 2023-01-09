@@ -1,3 +1,5 @@
+import './TodoItem.css';
+
 const TodoItem = (props) => {
   return (
     <>

@@ -1,9 +1,9 @@
-
+import './TodoSearch.css'
 const TodoSearch = () => {
   return (
     <>
-      <h3>Buscar un ToDo</h3>
-      <input placeholder="Cebolla" />
+      <h3 className='todoDoSearchTitle'>Buscar un ToDo</h3>
+      <input className='todoDoSearch' placeholder="Cebolla" />
     </>
   )
 }
