@@ -5,7 +5,7 @@
  border: 1px solid white;
  border-radius: 15px;
  margin-bottom: 10px;
- height: 60px;
+ height: auto;
  cursor: pointer;
  transition: all 0.3s ease-in-out;
 }
@@ -13,3 +13,40 @@
 .TodoItem:hover{
   border: 1px solid rgb(0, 140, 255);
  }
+ 
+.TodoItem span{
+  font-size: 12px;
+  color: rgb(92, 92, 92);
+}
+.TodoItem .completed{
+  font-size: 12px;
+  color: rgb(92, 92, 92);
+  margin-right: 10px;
+}
+.TodoItem .completed:hover{
+  font-size: 12px;
+  color: rgb(0, 140, 255);
+  margin-right: 10px;
+}
+.TodoItem .unclickable{
+  cursor: not-allowed;
+}
+.TodoItem .unclickable:hover{
+  color: rgb(235, 12, 12);;
+}
+
+.TodoItem .delete{
+  font-size: 12px;
+  color: rgb(92, 92, 92);
+  margin-right: 10px;
+}
+.TodoItem .delete:hover{
+  font-size: 12px;
+  color: rgb(235, 12, 12);
+  margin-right: 10px;
+}
+
+
+.TodoItem .checked{
+  text-decoration: line-through;
+}
