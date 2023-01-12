@@ -1,9 +1,17 @@
 import './CreateTodoButton.css'
 
 const CreateTodoButton = () => {
+  const onClickButton = (msg) => {
+    alert(msg)
+  }
+
   return (
     <>
-      <button className='CreateTodoButton'>+</button>
+      <button 
+        className='CreateTodoButton'
+        onClick={()=> onClickButton('Estamos en el modal')}>
+          +
+        </button>
     </>
   )
 }
