@@ -1,8 +1,14 @@
 .todoDoSearch{
   background-color: transparent;
-  border: 1px solid white;
-  border-radius: 15px;
+  border: none;
+  border-bottom: 1px solid white;
   color: white;
-  padding: 20px;
-  width: 50%;
+  padding: 15px 10px;
+  width: 20%;
+  transition: all 0.3s ease-in-out;
+}
+
+.todoDoSearch:focus{
+  border-bottom: 1px solid rgb(0, 140, 255);
+  outline: 0;
 }
