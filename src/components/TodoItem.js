@@ -9,7 +9,7 @@ const TodoItem = (props) => {
   }
   return (
     <>
-      <div key={props.key} className="TodoItem">
+      <div className="TodoItem">
         <span>ToDo</span>
         <p className={`${props.completed && 'checked'}`}>{props.text}</p>  
         <span 
