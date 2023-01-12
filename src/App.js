@@ -14,15 +14,16 @@ const todos = [
 function App() {
   return (
     <div className="App">
-      <TodoCounter />
-      <TodoSearch />
-      <TodoList>
-        {todos.map(todo => (
-          <TodoItem text={todo.text} />
-        ))}
-      </TodoList>
-      <CreateTodoButton />
-      
+      <div className="App-inner">
+        <TodoCounter />
+        <TodoSearch />
+        <TodoList>
+          {todos.map(todo => (
+            <TodoItem text={todo.text} />
+          ))}
+        </TodoList>
+        <CreateTodoButton />
+      </div>
     </div>
   );
 }

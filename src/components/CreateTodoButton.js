@@ -1,6 +1,10 @@
+import './CreateTodoButton.css'
+
 const CreateTodoButton = () => {
   return (
-    <div><button>+</button></div>
+    <>
+      <button className='CreateTodoButton'>+</button>
+    </>
   )
 }
 

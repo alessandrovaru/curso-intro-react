@@ -1,0 +1,22 @@
+.CreateTodoButton{
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.CreateTodoButton:hover{
+  transform: rotate(90deg);
+}
+
+@media only screen and (max-width: 900px) {
+  .CreateTodoButton{
+    bottom: 20px;
+    right: 20px;
+  }
+}
