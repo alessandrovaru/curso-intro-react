@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import './TodoSearch.css'
+
 const TodoSearch = () => {
+
+  const [searchValue, setSearchValue] = useState('')
+
   const onSearchValueSearch = (event) => {
-    console.log(event.target.value)
+    setSearchValue(event.target.value)
   }
   return (
     <>
@@ -9,6 +14,7 @@ const TodoSearch = () => {
       <input 
         className='todoDoSearch' 
         placeholder="Cebolla" 
+        value={searchValue}
         onChange={onSearchValueSearch}
       />
     </>
