@@ -1,12 +1,8 @@
-import { useState } from 'react'
 import './TodoSearch.css'
 
-const TodoSearch = () => {
-
-  const [searchValue, setSearchValue] = useState('')
-
+const TodoSearch = ({searchValue, setSearchValue}) => {
   const onSearchValueSearch = (event) => {
-    setSearchValue(event.target.value)
+    setSearchValue(event.target.value);
   }
   return (
     <>
