@@ -1,12 +1,6 @@
 import './TodoItem.css';
 
 const TodoItem = (props) => {
-  const onComplete = () => {
-    alert('Ya completaste el task ' + props.text)
-  }
-  const onDelete = () => {
-    alert('Borraste el task ' + props.text)
-  }
   return (
     <>
       <div className="TodoItem">
@@ -14,13 +8,13 @@ const TodoItem = (props) => {
         <p className={`${props.completed && 'checked'}`}>{props.text}</p>  
         <span 
           className={`completed ${props.completed && 'unclickable'}`}
-          onClick={onComplete}
+          onClick={props.onComplete}
         >
           completar
         </span>
         <span 
           className='delete'
-          onClick={onDelete}
+          onClick={props.onDelete}
         >
           Borrar
         </span>
