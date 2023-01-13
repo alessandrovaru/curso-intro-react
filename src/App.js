@@ -4,7 +4,7 @@ import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const defaultTodos = [
   { text: 'Cortar Cebolla', completed: false },
@@ -20,17 +20,17 @@ function App() {
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
-  useEffect(() => {
-    if (searchValue) {
-      const filteredTodo = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
-      console.log(filteredTodo);
-      setTodos(filteredTodo)
-    }
-    if (searchValue.length === 0) {
-      setTodos(defaultTodos)
-    }
-  }, [searchValue, todos])
-  
+  let filteredTodo = [];
+
+  if (!searchValue.length >= 1) {
+    filteredTodo = todos
+  } else {
+    filteredTodo = todos.filter(todo => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText)
+    });
+  }
 
   return (
     <div className="App">
@@ -44,7 +44,7 @@ function App() {
           setSearchValue={setSearchValue}
         />
         <TodoList>
-          {todos.map(todo => (
+          {filteredTodo.map(todo => (
             <TodoItem 
               key={todo.text} 
               text={todo.text}
