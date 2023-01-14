@@ -1,77 +1,107 @@
-import './App.css';
-import { useState } from 'react';
+import React from 'react';
 import { AppUI } from './AppUI';
 
 // const defaultTodos = [
-//   { text: 'Cortar Cebolla', completed: false },
-//   { text: 'Cortar papas', completed: true },
-//   { text: 'Llorar con la llorona', completed: false },
-//   { text: 'Llorar con la lloronad', completed: false },
-// ]
+//   { text: 'Cortar cebolla', completed: true },
+//   { text: 'Tomar el cursso de intro a React', completed: false },
+//   { text: 'Llorar con la llorona', completed: true },
+//   { text: 'LALALALAA', completed: false },
+// ];
+
+function useLocalStorage(itemName, initialValue) {
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [item, setItem] = React.useState(initialValue);
+  
+  React.useEffect(() => {
+    setTimeout(() => {
+      try {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+        
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
+
+        setItem(parsedItem);
+        setLoading(false);
+      } catch(error) {
+        setError(error);
+      }
+    }, 1000);
+  });
+  
+  const saveItem = (newItem) => {
+    try {
+      const stringifiedItem = JSON.stringify(newItem);
+      localStorage.setItem(itemName, stringifiedItem);
+      setItem(newItem);
+    } catch(error) {
+      setError(error);
+    }
+  };
+
+  return {
+    item,
+    saveItem,
+    loading,
+    error,
+  };
+}
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
+  const [searchValue, setSearchValue] = React.useState('');
 
-  if(!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos)
-  }
-
-  const [todos, setTodos] = useState(parsedTodos)
-  const [searchValue, setSearchValue] = useState('');
-  
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
-  let filteredTodo = [];
+  let searchedTodos = [];
 
   if (!searchValue.length >= 1) {
-    filteredTodo = todos
+    searchedTodos = todos;
   } else {
-    filteredTodo = todos.filter(todo => {
+    searchedTodos = todos.filter(todo => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText)
+      return todoText.includes(searchText);
     });
-  };
-
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
   }
 
-  // Esto genera un re render
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
-  }
+  };
 
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1)
+    newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
-  }
+  };
 
   return (
-    <>
-      <AppUI 
-        totalTodos={totalTodos}
-        completedTodos={completedTodos}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        filteredTodo={filteredTodo}
-        completeTodo={completeTodo}
-        deleteTodo={deleteTodo}
-        setTodos={setTodos}
-      />
-    </>
+    <AppUI
+      loading={loading}
+      error={error}
+      totalTodos={totalTodos}
+      completedTodos={completedTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 }
 
