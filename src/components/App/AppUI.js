@@ -5,6 +5,7 @@ import { TodoList } from "../../components/TodoList";
 import { TodoItem } from "../../components/TodoItem";
 import { CreateTodoButton } from "../../components/CreateTodoButton";
 import { TodoContext } from "../TodoContext";
+import { Modal } from "../Modal";
 
 function AppUI() {
 
@@ -21,6 +22,32 @@ function AppUI() {
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
+      <Modal>
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+        </Modal>
         <TodoList>
           {error && <p>Desespérate, hubo un error...</p>}
           {loading && <p>Estamos cargando, no desesperes...</p>}
@@ -36,6 +63,7 @@ function AppUI() {
             />
           ))}
         </TodoList>
+        
       <CreateTodoButton />
     </React.Fragment>
   );
