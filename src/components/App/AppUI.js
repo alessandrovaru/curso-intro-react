@@ -8,12 +8,13 @@ import { TodoContext } from "../TodoContext";
 
 function AppUI() {
 
+  //CONTEXT
   const {
     error,
     loading,
     searchedTodos,
     completeTodo,
-    deleteTodo,
+    deleteTodo
   } = React.useContext(TodoContext)
   
   return (
