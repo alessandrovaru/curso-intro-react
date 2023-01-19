@@ -1,8 +1,19 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
-const Modal = ({children}) => {
-  const modal = ReactDOM.createPortal(children, document.getElementById('modal'));
-  return modal
+function Modal({ setOpenModal, children }) {
+  return ReactDOM.createPortal(
+    <div className="ModalBackground">
+      {children}
+      <button 
+        className='CloseModal'
+        onClick={()=>{setOpenModal(false)}}>
+        x
+      </button>
+    </div>,
+    document.getElementById('modal')
+  );
 }
 
-export { Modal }
+export { Modal };

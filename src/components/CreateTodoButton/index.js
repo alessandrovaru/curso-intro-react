@@ -1,17 +1,13 @@
 import './CreateTodoButton.css'
 
-const CreateTodoButton = () => {
-  const onClickButton = (msg) => {
-    alert(msg)
-  }
-
+const CreateTodoButton = (props) => {
   return (
     <>
       <button 
         className='CreateTodoButton'
-        onClick={()=> onClickButton('Estamos en el modal')}>
-          +
-        </button>
+        onClick={props.setOpenModal}>
+        +
+      </button>
     </>
   )
 }

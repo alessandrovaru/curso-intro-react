@@ -6,6 +6,7 @@ import { TodoItem } from "../../components/TodoItem";
 import { CreateTodoButton } from "../../components/CreateTodoButton";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
+import { TodoForm } from '../TodoForm';
 
 function AppUI() {
 
@@ -15,39 +16,20 @@ function AppUI() {
     loading,
     searchedTodos,
     completeTodo,
-    deleteTodo
+    deleteTodo,
+    openModal,
+    setOpenModal
   } = React.useContext(TodoContext)
   
   return (
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
-      <Modal>
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          Teleportasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+      {!!openModal && (
+        <Modal setOpenModal={setOpenModal}>
+          <TodoForm />
         </Modal>
+      )}
         <TodoList>
           {error && <p>Desespérate, hubo un error...</p>}
           {loading && <p>Estamos cargando, no desesperes...</p>}
@@ -64,7 +46,7 @@ function AppUI() {
           ))}
         </TodoList>
         
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </React.Fragment>
   );
 }
