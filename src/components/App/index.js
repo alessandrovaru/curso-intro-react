@@ -31,16 +31,14 @@ function App() {
   return (
       <div className='App'>
         <div className='App-inner'>
-          <TodoHeader>
+          <TodoHeader loading={loading}>
             <TodoCounter
               totalTodos={totalTodos} 
-              completedTodos={completedTodos} 
-              loading={loading}
+              completedTodos={completedTodos}
             />
             <TodoSearch
               searchValue={searchValue}
               setSearchValue={setSearchValue} 
-              loading={loading}
             />
           </TodoHeader>
           {!!openModal && (
