@@ -2,3 +2,7 @@
   border-radius: 15px;
   width: 100%;
 }
+
+.todoCounterContainer--loading{
+  opacity: 0.2;
+}
