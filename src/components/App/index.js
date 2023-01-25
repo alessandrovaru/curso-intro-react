@@ -9,6 +9,7 @@ import { Modal } from "../Modal";
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
 import './App.css'
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 
 
@@ -26,7 +27,8 @@ function App() {
       completedTodos,
       searchValue, 
       setSearchValue,
-      addTodo
+      addTodo,
+      sincronizeTodos
     } = useTodos()
   return (
       <div className='App'>
@@ -88,6 +90,7 @@ function App() {
            
             
           <CreateTodoButton setOpenModal={setOpenModal} />
+          <ChangeAlertWithStorageListener sincronizeTodos={sincronizeTodos} />
         </div>
       </div>
   );
