@@ -55,11 +55,12 @@ function App() {
             loading={loading}
             totalTodos={totalTodos}
             searchedTodos={searchedTodos}
+            searchText={searchValue}
             onError={()=> <p>Desespérate, hubo un error...</p>}
             onLoading={()=><p>Estamos cargando, no desesperes...</p>}
             onEmptyTodos={()=><p>¡Crea tu primer TODO!</p>}
             onEmptySearchResult={
-              (searchText)=>{<p>No hay resulatdo para {searchText}</p>}
+              (searchText)=><p>No hay resulatdo para {searchText}</p>
             }
             render={todo=>(
               <TodoItem

@@ -6,8 +6,9 @@ const TodoList = (props) => {
       <h3>Lista</h3>
       {props.error && props.onError()}
       {props.loading && props.onLoading()}
-      
-      {(!props.loading && !props.searchedTodos.length) && props.onEmptyTodos()}
+
+      {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
+      {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResult(props.searchText)}
       
       <div className='TodoList'>
         {props.searchedTodos.map(todo => props.render(todo))}
