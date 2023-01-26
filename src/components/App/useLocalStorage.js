@@ -40,6 +40,7 @@ function useLocalStorage(itemName, initialValue) {
 
   const sincronizeItem = () => {
     setLoading(true);
+    setItem([]);
     setSincronizedItem(false)
   }
 

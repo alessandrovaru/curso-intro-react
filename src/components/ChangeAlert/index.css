@@ -1,0 +1,25 @@
+.ChangeAlertContainer{
+  background-color: red;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  mix-blend-mode: plus-lighter;
+  cursor: not-allowed;
+}
+
+.ChangeAlertContainer button{
+  cursor: pointer;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+.ChangeAlertContainer button:hover{
+  box-shadow: 1px 1px 20px black;
+}
